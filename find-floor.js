@@ -1,0 +1,21 @@
+function findFloor(arr, num) {
+    let left = 0;
+    let right = arr.length - 1;
+    let floor = -1;
+
+    while (left <= right) {
+        let mid = Math.floor((left + right) / 2);
+
+        //if arr[mid] is greater than num, move to the left
+        //update floor if arr[mid] is less than num
+        if (arr[mid] <= num) {
+            floor = arr[mid];
+            left = mid + 1;
+        } else {
+            right = mid - 1;
+        }
+    }
+    return floor;
+}
+
+module.exports = findFloor
